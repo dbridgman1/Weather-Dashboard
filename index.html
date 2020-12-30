@@ -3,9 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
+    <header class="container-fulid">
+        Weather Dashboard
+    </header>
     
+    <div class="container">
+        <div class="row">
+            <aside class="col-lg-3 bg-light">
+                <h3>Search for a City:</h3>
+                <form class="form-inline">
+                    
+                    <div class="row">
+                        <input id="search" type="text" class="col form-control mb-2 mr-sm-2" placeholder="Austin">
+                        <button id="searchBtn" type="submit" class="col-lg-2 btn btn-primary mb-2"><i class="fas fa-search"></i></button>
+                    </div>
+                    
+                  </form>
+                  <div id="list">
+
+                  </div>
+                
+            </aside>
+            <div class="col-lg-9">
+                <div class="row">
+                    <div id="present"></div>
+                </div>
+                <div class="row">
+                    <div id="future" class="row">
+                      
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="script.js"></script>
+
 </body>
 </html>
