@@ -27,7 +27,7 @@ $(document).ready(function() {
             let windSpeed = $('<p>').text(`Wind Speed: ${wind} MPH`);
             today.append(windSpeed);
 
-            let uvURL = `http://api.openweathermap.org/data/2.5/uvi?lat=${response.city.coord.lat}&lon=${response.city.coord.lon}&appid=${apiKey}`;
+            let uvURL = `https://api.openweathermap.org/data/2.5/uvi?lat=${response.city.coord.lat}&lon=${response.city.coord.lon}&appid=${apiKey}`;
             
             // this ajax handles the UV index value
             $.ajax({
