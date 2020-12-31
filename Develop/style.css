@@ -1,0 +1,48 @@
+header {
+    font-size: 40px;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+h3 {
+    padding: 5px;
+}
+
+#present {
+    padding: 20px;
+    border: 1px solid lightgray;
+    margin: 10px;
+}
+
+.listCities {
+    padding: 5px;
+    border: 1px solid darkgray;
+    background-color: white;
+    margin: 0;
+}
+
+#future {
+    margin: 10px;
+}
+
+input {
+    width: 10%;
+}
+
+.icon {
+    font-size: .5rem;
+    color: red;
+}
+
+.futureStyle {
+    background-color: blue;
+    color: white;
+    margin: 3px;
+}
+
+#searchBtn {
+    width: 10%;
+}
