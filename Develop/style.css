@@ -50,3 +50,7 @@ input {
 #searchRow {
     padding: 5px 0px 5px 20px;
 }
+
+span {
+    padding: 5px;
+}

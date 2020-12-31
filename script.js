@@ -17,8 +17,8 @@ $(document).ready(function() {
             let city = $('<h2>').text(`${response.city.name} ${local}`);
             $('#present').append(today);
             today.append(city);
-            var tempF = ((response.list[0].main.temp - 273.15) * 1.80 + 32).toFixed(2);
-            let temperature = $('<p>').text(`Temperature: ${tempF} F`);
+            let tempF = ((response.list[0].main.temp - 273.15) * 1.80 + 32).toFixed(2);
+            let temperature = $('<p>').text(`Temperature: ${tempF} °F`);
             today.append(temperature);
             let humidity = response.list[0].main.humidity;
             let hum = $('<p>').text(`Humidity: ${humidity}%`);
@@ -34,14 +34,26 @@ $(document).ready(function() {
                 url: uvURL,
                 method: "GET"
             }).then(function(response){
-                let uv = $('<div>').text(`UV Index: ${response.value}`);
+                let uv = $('<div>').text(`UV Index: `);
+                let color = $('<span>').text(response.value)
+                if (response.value < 3) {
+                    color.addClass("btn-success");
+                  }
+                  else if (response.value < 6) {
+                    color.addClass("btn-warning");
+                  }
+                  else {
+                    color.addClass("btn-danger");
+                  }
+          
                 uv.addClass('uvClass');
                 $('#present').append(uv);
+                uv.append(color)
 
             });
         
             // looping through to render the five day forecast on the page
-            let array = [1, 9, 17, 25, 33];
+            let array = [2, 10, 18, 26, 34];
             let body = $('#future');
             let header = $('<h2>').text("5-Day Forecast");
             body.append(header);
@@ -57,7 +69,7 @@ $(document).ready(function() {
                 icon.append(icon1)
                 five.append(icon);
                 let tempFiveF = ((response.list[i].main.temp - 273.15) * 1.80 + 32).toFixed(2);
-                let temperature1 = $('<p>').text(`Temp: ${tempFiveF} F`);
+                let temperature1 = $('<p>').text(`Temp: ${tempFiveF} °F`);
                 five.append(temperature1);
                 let humidity1 = response.list[i].main.humidity;
                 let hum1 = $('<p>').text(`Humidity: ${humidity1}%`);
@@ -72,12 +84,18 @@ $(document).ready(function() {
         $('#future').empty();
         let weather = $('#search').val().trim();
         if (weather === ""){
-            alert('Please enter a city')
+            alert('Please enter a city');
         } else {
-            let newList = $('<p>').text(weather)
-            newList.addClass('listCities')
-            $('#list').append(newList)
-            getWeatherInfo(weather)
+            let newList = $('<p>').text(weather);
+            newList.addClass('listCities');
+            $('#list').append(newList);
+            getWeatherInfo(weather);
         }
+        $('.listCities').on('click', function(e) {
+            e.preventDefault();
+            $('#present').empty();
+            $('#future').empty();
+            getWeatherInfo(weather)
+        })
     });
 });
